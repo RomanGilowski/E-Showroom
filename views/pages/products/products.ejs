@@ -1,0 +1,61 @@
+<h1>Lista produktów</h1>
+
+<% if (user) { %>
+    <a href="/admin/produkty/dodaj" class="btn btn-success">Dodaj Produkt</a>
+  <% } %>
+
+
+<form>
+<%- include('partials/searchbar') %>
+
+   
+<div class="row">
+    <div class="col-3">
+
+         <%- include('partials/filters') %>
+    </div>
+    <div class="col-9">
+        <% products.forEach(product => { %>
+            <div class="card bg-light mb-3">
+                   <div class="card-body">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="/uploads/<%- product.image %>" class="img-fluid" alt="">
+                        </div>
+                        
+                        <div class="col-9">
+                            <p class="h-3 mb-4"><%= product.name %></p>
+                    <p class="h-3 mb-4"><%= product.price %> zł.</p>
+                    <p class="h-3 mb-4">Kontakt: <%= product.user?.email %></p>
+                    <p class="h-3 mb-4">TEL: <%= product.user?.telephone %></p>
+                    
+                    
+                    <p class="h-3 mb-4"><a href="<%-product.user?.webSite %>"><%= product.user?.webSite %></a></p>
+                    
+                    <a href="/produkty/<%- product.slug %>" class="btn btn-primary">Zobacz</a>
+                    <% if (user) { %>
+                    <% if(user._id === product.user?._id.toString()) { %>
+                        
+                    <a href="/admin/produkty/<%- product.slug %>/edytuj" class="btn btn-warning">Edytuj</a>
+                    
+                    <a href="/admin/produkty/<%- product.slug %>/usun"
+                         onClick="return confirm('Czy jesteś pewny?')"
+                          class="btn btn-danger">Usuń</a>
+                          <% } %>         
+                    <% } %>
+                        </div>
+                    </div>
+                   </div>
+                </div>
+                
+            <% }) %>
+    </div>
+</div>
+
+<%- include('partials/paginations') %>
+
+</form>
+
+
+
+

@@ -1,0 +1,87 @@
+<form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="" class="form-label">Nazwa produktu</label>
+      <input type="text" 
+        name="name" 
+        value="<%= form.name %>"
+        class="form-control <%- errors?.name ? 'is-invalid' : '' %>" required>
+        <div class="form-text">Przynajmniej 3 znaki</div>
+      <% if (errors?.name) { %>
+        <div class="invalid-feedback"><%= errors.name.message %></div>
+      <% } %>
+    </div>
+
+    <% if (showFile) { %>
+      <% if (form.image) { %>
+        <div class="row">
+          <div class="col">
+            <img src="/uploads/<%- form.image %>" class="img-fluid" alt="">
+            <a href="/admin/produkty/<%- form.slug %>/usun-zdjecie" class="btn btn-sm btn-danger">Usuń</a>
+          </div>
+        </div>
+        <% } %>
+      <div class="mb-3">
+        <label for="" class="form-label">Zdjęcie</label>
+        <input type="file" name="image" class="form-control" id="image">
+  
+      </div>
+      <% } %>
+  
+    <div class="mb-3">
+      <label for="" class="form-label">Slug zostanie dodany automatycznie</label>
+      <input type="text" 
+        placeholder="Slug na podstawie nazwy produktu"
+        name="slug" 
+        value="<%= form.slug %>"
+        class="form-control <%- errors?.slug ? 'is-invalid' : '' %>" >
+      <div class="form-text">Przynajmniej 3 znaki</div>
+      <% if (errors?.slug) { %>
+        <div class="invalid-feedback"><%= errors.slug.message %></div>
+      <% } %>
+    </div>
+  
+    <div class="mb-3">
+      <label for="" class="form-label">Cena</label>
+      <input type="number" 
+        name="price" 
+        value="<%= form.price %>"
+        class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Opis produktu</label>
+      <input type="text" 
+        name="description" 
+        value="<%= form.description %>"
+        class="form-control" >
+    </div>
+
+    <div class="mb-3">
+      <label for="category" class="form label"  >Kategoria</label>
+    <select
+       name="category"
+       id="category"
+       type="text"
+       class="form-control"
+       value="<%= form.category %>" >
+       <option value="Sukienki">Sukienki</option>
+       <option value="Bluzki">Bluzki</option>
+       <option value="Kurtki">Kurtki</option>
+       <option value="Płaszcze">Płaszcze</option>
+       <option value="Spódnice">Spódnice</option>
+       <option value="Spodnie">Spodnie</option>
+       <option value="Swetry">Swetry</option>
+       <option value="Akcesoria">Akcesoria</option>
+       <option value="Torebki">Torebki</option>
+       <option value="Dla domu">Dla domu</option>
+       <option value="Inne">Inne</option>
+     </select>
+    </div>
+  
+    <button class="btn btn-primary"><%- buttonText %></button>
+  </form>
+  
+  <% if (errors) { %>
+    <div class="alert alert-danger mt-3">
+      Popraw dane w formularzu
+    </div>
+  <% } %>

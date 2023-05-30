@@ -1,0 +1,42 @@
+        <div class="mb-3">
+            
+            <label for="sort" class="form-label">Sortuj wg</label>
+            <select name="sort" id="sort" class="form-control">
+                <option value="">Domyślnie</option>
+                <option value="name|asc" <%- query.sort === 'name|asc' ? 'selected' : '' %>>A-z</option>
+                <option value="name|desc" <%- query.sort === 'name|desc' ? 'selected' : '' %>>Z-a</option>
+                <option value="price|asc" <%- query.sort === 'price|asc' ? 'selected' : '' %>>Cena rosnąco</option>
+                <option value="price|desc" <%- query.sort === 'price|desc' ? 'selected' : '' %>>Cena malejąco</option>  
+            </select>
+                
+            <label for="filtr" class="form-label">Kategoria</label>
+            <select name="filtr" id="filtr" class="form-control">
+                <option value="">Domyślnie</option>
+                <option value="Sukienki" <%- query.filtr === 'Sukienki' ? 'selected' : '' %>>Sukienki</option>
+                <option value="Bluzki" <%- query.filtr === 'Bluzki' ? 'selected' : '' %>>Bluzki</option>
+                <option value="Kurtki" <%- query.filtr === 'Kurtki' ? 'selected' : '' %>>Kurtki</option>
+                <option value="Płaszcze" <%- query.filtr === 'Płaszcze' ? 'selected' : '' %>>Płaszcze</option>
+                <option value="Spódnice" <%- query.filtr === 'Spódnice' ? 'selected' : '' %>>Spódnice</option>
+                <option value="Spodnie" <%- query.filtr === 'Spodnie' ? 'selected' : '' %>>Spodnie</option>
+                <option value="Swetry" <%- query.filtr === 'Swetry' ? 'selected' : '' %>>Swetry</option>
+                <option value="Akcesoria" <%- query.filtr === 'Akcesoria' ? 'selected' : '' %>>Akcesoria</option>
+                <option value="Dla domu" <%- query.filtr === 'Dla domu' ? 'selected' : '' %>>Dla domu</option>
+                <option value="Inne" <%- query.filtr === 'Inne' ? 'selected' : '' %>>Inne</option>
+                
+                
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="countmin" class="form-label">Cena od: </label>
+            <input type="number" value="<%- query.countmin %>" name="countmin" id="countmin" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="countmax" class="form-label">Cena do: </label>
+            <input type="number" value="<%- query.countmax %>" name="countmax" id="countmax" class="form-control">
+        </div>
+            
+            <button class="btn btn-primary mt-3">Sortuj</button>
+            
+        

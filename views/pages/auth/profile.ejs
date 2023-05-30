@@ -1,0 +1,52 @@
+<h1>Mój profil</h1>
+
+<form method="POST">
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" 
+      class="form-control <%- errors?.email ? 'is-invalid' : '' %>" 
+      name="email" 
+      value="<%- form.email %>"
+      id="email"
+      required>
+      <% if (errors?.email) { %>
+        <div class="invalid-feedback"><%= errors.email.message %></div>
+        <% } %>
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Hasło</label>
+    <input type="password" 
+      class="form-control <%- errors?.password ? 'is-invalid' : '' %>" 
+      name="password"
+      id="password"
+      >
+  </div>
+
+  <div class="mb-3">
+    <label for="telephone" class="form-label">Telefon</label>
+    <input type="text" 
+      value="<%- form.telephone %>"
+      class="form-control <%- errors?.telephone ? 'is-invalid' : '' %>" 
+      name="telephone"
+      id="telephone"
+      >
+  </div>
+
+  <div class="mb-3">
+    <label for="webSite" class="form-label">Web Site</label>
+    <input type="text" 
+      value="<%- form.webSite %>"
+      class="form-control <%- errors?.webSite ? 'is-invalid' : '' %>" 
+      name="webSite"
+      id="webSite"
+      >
+  </div>
+
+  <% if (errors?.password) { %>
+    <div class="invalid-feedback"><%= errors.password.message %></div>
+    <% } %>
+
+  <button class="btn btn-primary">Zapisz!</button>
+</form>
