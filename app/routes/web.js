@@ -20,10 +20,10 @@ router.get('/admin/profil', UserController.showProfile);
 router.post('/admin/profil', UserController.updateProfile);
 
 router.get('/admin/produkty/dodaj', ProductController.showCreateProductForm);
-router.post('/admin/produkty/dodaj',upload.single('image'), ProductController.createProduct);
+router.post('/admin/produkty/dodaj', upload.single('image'), ProductController.createProduct);
 
 router.get('/admin/produkty/:name/edytuj', ProductController.showEditProductForm);
-router.post('/admin/produkty/:name/edytuj',upload.single('image'), ProductController.editProduct);
+router.post('/admin/produkty/:name/edytuj', upload.single('image'), ProductController.editProduct);
 
 router.get('/admin/produkty/:name/usun', ProductController.deleteProduct);
 router.get('/admin/produkty/:name/usun-zdjecie', ProductController.deleteImage)

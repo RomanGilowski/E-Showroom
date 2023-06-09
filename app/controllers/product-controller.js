@@ -75,7 +75,7 @@ class ProductController {
          category: req.body.category,
          description: req.body.description,
          user: req.session.user._id,
-         image: req.file.filename
+         
          
         });
 

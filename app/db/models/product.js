@@ -36,6 +36,7 @@ const productSchema = new Schema({
     },
 
     image: String
+  
  });
 
  productSchema.pre('save', function(next) {
