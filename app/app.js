@@ -5,13 +5,13 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const {sessionKeySecret} = require('./config')
-const helmet = require('helmet');
+
 
 
 //init datbase
 require('./db/mongoose');
 
-app.use(helmet());
+
 
 
 
