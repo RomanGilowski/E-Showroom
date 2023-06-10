@@ -3,7 +3,7 @@ const app = require('./app');
 const {port, ssl} = require('./config');
 const https = require('https');
 const fs = require('fs');
-const https = require('https');
+
 
 app.listen(port, () => {
    console.log(`Serwer uruchomiony na porcie ${port}`)
