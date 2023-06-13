@@ -30,7 +30,7 @@
                     <p class="h-3 mb-4">TEL: <%= product.user?.telephone %></p>
                     
                     
-                    <p class="h-3 mb-4"><a href="<%-product.user?.webSite %>"><%= product.user?.webSite %></a></p>
+                    <p class="h-3 mb-4"><a href="https://<%= product.user?.webSite %>"><%= product.user?.webSite %></a></p>
                     
                     <a href="/produkty/<%- product.slug %>" class="btn btn-primary">Zobacz</a>
                     <% if (user) { %>
